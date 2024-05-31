@@ -451,34 +451,9 @@ function appendMessage(name, img, side, text) {
     msgerChat.scrollTop += 500;
 }
 
-// async function botResponse(userMsg) {
-//     try {
-//         const response = await fetch('http://127.0.0.1:8004/generate', {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({ query: userMsg })  // Ensure the key is 'query'
-//         });
-//         const data = await response.json();
-//         let botMsg;
-
-//         if (Array.isArray(data.response)) {
-//             botMsg = formatTable(data.response);
-//         } else {
-//             botMsg = data.response;
-//         }
-
-//         appendMessage(BOT_NAME, BOT_IMG, "left", botMsg);
-//     } catch (error) {
-//         console.error('Error:', error);
-//         appendMessage(BOT_NAME, BOT_IMG, "left", "Sorry, there was an error. Please try again later.");
-//     }
-// }
-
 async function botResponse(userMsg) {
     try {
-        const response = await fetch('http://127.0.0.1:8005/generate', {
+        const response = await fetch('http://127.0.0.1:8004/generate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -500,6 +475,31 @@ async function botResponse(userMsg) {
         appendMessage(BOT_NAME, BOT_IMG, "left", "Sorry, there was an error. Please try again later.");
     }
 }
+
+// async function botResponse(userMsg) {
+//     try {
+//         const response = await fetch('http://127.0.0.1:8005/generate', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({ query: userMsg })  // Ensure the key is 'query'
+//         });
+//         const data = await response.json();
+//         let botMsg;
+
+//         if (Array.isArray(data.response)) {
+//             botMsg = formatTable(data.response);
+//         } else {
+//             botMsg = data.response;
+//         }
+
+//         appendMessage(BOT_NAME, BOT_IMG, "left", botMsg);
+//     } catch (error) {
+//         console.error('Error:', error);
+//         appendMessage(BOT_NAME, BOT_IMG, "left", "Sorry, there was an error. Please try again later.");
+//     }
+// }
 
 
 function formatTable(data) {
