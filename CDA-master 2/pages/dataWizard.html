@@ -105,7 +105,8 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="../images/wipro-white-edited.webp" width="80" height="60" class="d-inline-block align-top" alt="wipro-logo" >
                   </a>
-                  <a class="navbar-brand navhead" href="index.html" style="color: white; margin-bottom: 30px;"><h3 class="text-white mb-0">
+                  <!-- <a class="navbar-brand navhead" href="index.html" style="color: white; margin-bottom: 30px;"><h3 class="text-white mb-0"> -->
+                    <a class="navbar-brand navhead" href="index.html" style="color: white; margin-bottom: 30px; padding-top: px;"><h3 class="text-white mb-0">
                     Conversational Data Analyser</Data></Data><span
                       style="font-size: 1.2rem; margin-left: 10px"
                       >Powered by Intel® Core™ Ultra Processor</span></h3>
@@ -169,12 +170,16 @@
          </div>
         <div class="col-lg-8">
             <div class="form-group input-group">
-                <input type="text" class="form-control" style="height: 34px;" id="queryInput">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" id="searchButton">
-                        <i class="fa fa-search"></i> Visualize
-                    </button>
-                </span>
+                <div class="search-container">
+                    <div class="search-box">
+                      <input type="text" placeholder="Search your query for analysis" class="search-input" id="queryInput" style="border: 0px;
+                      border-radius: 0%;">
+                      <button class="search-button" id="searchButton">
+                        <i class="fas fa-search"></i>
+                        <span>Visualise</span>
+                      </button>
+                    </div>
+                  </div>
             </div>
         </div>
 
