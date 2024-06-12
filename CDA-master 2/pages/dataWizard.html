@@ -106,7 +106,7 @@
                     <img src="../images/wipro-white-edited.webp" width="80" height="60" class="d-inline-block align-top" alt="wipro-logo" >
                   </a>
                   <!-- <a class="navbar-brand navhead" href="index.html" style="color: white; margin-bottom: 30px;"><h3 class="text-white mb-0"> -->
-                    <a class="navbar-brand navhead" href="index.html" style="color: white; margin-bottom: 30px; padding-top: px;"><h3 class="text-white mb-0">
+                    <a class="navbar-brand navhead" href="index.html" style="color: white; margin-bottom: 30px; padding: top 6px;"><h3 class="text-white mb-0">
                     Conversational Data Analyser</Data></Data><span
                       style="font-size: 1.2rem; margin-left: 10px"
                       >Powered by Intel® Core™ Ultra Processor</span></h3>
@@ -176,7 +176,7 @@
                       border-radius: 0%;">
                       <button class="search-button" id="searchButton">
                         <i class="fas fa-search"></i>
-                        <span>Visualise</span>
+                        <span>Visualize</span>
                       </button>
                     </div>
                   </div>
@@ -214,18 +214,16 @@
                                             <!-- Details -->
                                         </div>
                                         <div class="panel-body">
+                                            <button id="showQueryButton" class="btn btn-primary mb-3">Show Query</button>
                                             <div class="table-responsive">
                                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                     <thead>
-                                                        <!-- <tr> -->
-                                                            <!-- Headers will be populated by JavaScript -->
-                                                        <!-- </tr> -->
+                                                        <!-- Headers will be populated by JavaScript -->
                                                     </thead>
                                                     <tbody>
                                                         <!-- Rows will be populated by JavaScript -->
                                                     </tbody>
-                                                </table>
-                                            </div>
+                                                </table>                             </div>
                                         </div>
                                     </div>
                                 </div>
@@ -370,10 +368,14 @@
     })
     .then(response => response.json())
     .then(data => {
+        fetchedQuery = data.query;
+        let schema = "test";
+
         // Clear existing table headers and rows
         const table = document.getElementById('dataTables-example');
         const thead = table.querySelector('thead');
         const tbody = table.querySelector('tbody');
+        
         thead.innerHTML = '';
         tbody.innerHTML = '';
 
@@ -418,6 +420,12 @@
         document.getElementById('loading').style.display = 'none';
     });
 });
+let schema ="salesforce_data";
+ // Show query in an alert popup
+ document.getElementById('showQueryButton').addEventListener('click', () => {
+    alert(`SQL Query: ${fetchedQuery}`);
+
+                });
 const msgerForm = document.querySelector(".msger-inputarea");
 const msgerInput = document.querySelector(".msger-input");
 const msgerChat = document.querySelector(".msger-chat");
@@ -458,7 +466,7 @@ function appendMessage(name, img, side, text) {
 
 async function botResponse(userMsg) {
     try {
-        const response = await fetch('http://127.0.0.1:8004/generate', {
+        const response = await fetch('http://127.0.0.1:8006s/generate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
