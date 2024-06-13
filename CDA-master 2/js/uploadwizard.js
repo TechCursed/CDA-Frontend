@@ -350,12 +350,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             const data = await response.json();
             console.log(data);
-            alert("Data has been successfully loaded into the Database!");
+            swal({
+                title: "Success",
+                text: "Data has been successfully loaded into the Database!",
+                icon: "success",
+                button: "OK",
+            }).then(() => {
+                // Redirect to another page
+                window.location.href = 'dataWizard.html'; 
+            });
         } catch (error) {
             console.error('Error:', error);
-            alert("Data has been successfully loaded into the Database!");
+            swal({
+                title: "Error",
+                text: "Failed to load data into the Database!",
+                icon: "error",
+                button: "OK",
+            }).then(() => {
+                // Redirect to another page
+                window.location.href = 'dataWizard.html'; 
+            });
         }
     }
+    
 
     // Event listener for Auto Fix button
     autoFixButton.addEventListener("click", function () {

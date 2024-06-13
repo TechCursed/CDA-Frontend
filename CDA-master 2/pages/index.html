@@ -258,23 +258,28 @@
                                                         <div class="congrats">Files Uploaded <i class="fa-solid fa-check"></i></div>
                                                         <div class="congrats">Checks Done <i class="fa-solid fa-check"></i></div>
                                                         <div class="congrats">Data Sanitized <i class="fa-solid fa-check"></i></div>
+                                                        <div id="myModal" class="modal">
+                                                            <div class="modal-content">
+                                                              <span class="close">&times;</span>
+                                                              <p id="modalMessage">Data has been successfully loaded into the Database!</p>
+                                                            </div>
+                                                          </div>
                                                     </div>
                                                 </div>
                                                 <div class="button-container">
                                                     <button class="back_button">Back</button>
-                                                    <button class="next_button" onclick="window.location.href='dataWizard.html'">Update</button>
+                                                    <button class="next_button">Update</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-
                         </div>
                         <!-- new code -->
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <script src="../js/uploadwizard.js"></script>
+                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                     </div>
                 </div>
                 <!-- /.panel .chat-panel -->
